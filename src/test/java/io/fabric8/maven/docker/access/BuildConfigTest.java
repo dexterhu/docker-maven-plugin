@@ -54,6 +54,14 @@ public class BuildConfigTest {
     }
 
     @Test
+    public void squash() {
+        BuildOptions opts = new BuildOptions().squash(true);
+        assertEquals("1", opts.getOptions().get("squash"));
+        opts = new BuildOptions().squash(false);
+        assertEquals("0", opts.getOptions().get("squash"));
+    }
+
+    @Test
     public void dockerfile() {
         BuildOptions opts = new BuildOptions().dockerfile("blub");
         assertEquals("blub", opts.getOptions().get("dockerfile"));
